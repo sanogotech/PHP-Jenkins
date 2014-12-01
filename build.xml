@@ -125,13 +125,11 @@
  </target>
 
 
-<target name="zip" description="zip file">
-	<exec executable="zip">
-		<arg value="-r"/>
-		<arg value="src.zip"/>
-		<arg value="${basedir}/src"/>
-	</exec>	
-</target>
+<target name="zip" description="zip files using ant">
+               <zip destfile="manual.zip"
+                basedir="src/"/>
+</target>       
+
 
 </project>
 
