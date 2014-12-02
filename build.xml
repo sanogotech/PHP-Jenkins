@@ -126,8 +126,8 @@
 
 
 <target name="zip" description="zip files using ant">
-               <zip destfile="src.zip"
-                basedir="src/"/>
+    <zip destfile="src.zip"
+         basedir="src/"/>
 </target>       
 
 
