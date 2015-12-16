@@ -9,6 +9,8 @@
 
 ## Installation
 
+NOTE: To Run this project you only require to run composer update in your jenkins shell before running ANT scirpt.
+
 Simply add a dependency on `sebastian/money` to your project's `composer.json` file if you use [Composer](http://getcomposer.org/) to manage the dependencies of your project.
 
 Here is a minimal example of a `composer.json` file that just defines a dependency on Money:
