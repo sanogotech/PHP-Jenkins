@@ -18,8 +18,6 @@
  </target>
 
  <target name="generate-code" description="Generate Currency-specific subclasses of Money and autoloader code">
- <chmod file="${basedir}/build/generate-child-classes.php" perm="ugo+x"/>
- <chmod file="${basedir}/build/tools/**" perm="ugo+x"/>
   <exec executable="${basedir}/build/generate-child-classes.php"/>
 
   <exec executable="${basedir}/build/tools/phpab.phar">
