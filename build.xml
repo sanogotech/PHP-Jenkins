@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="Money" default="build">
+
+  <condition property="isWindows">
+    <os family="windows" />
+  </condition>
+  
+   <condition property="isUnix">
+    <os family="unix" />
+  </condition>
+  
  <target name="build" depends="prepare,lint,phploc,pdepend,phpmd-ci,phpcs-ci,phpcpd,phpunit,phpdox,zip"/>
 
  <target name="clean" description="Cleanup build artifacts">
@@ -16,15 +25,25 @@
   <mkdir dir="${basedir}/build/logs"/>
   <mkdir dir="${basedir}/build/pdepend"/>
  </target>
+ 
+   <target name="doWindows" if="isWindows">
+    <echo message="Came into the Windows target ****" />
 
- <target name="generate-code" description="Generate Currency-specific subclasses of Money and autoloader code">
-  <exec executable="${basedir}/build/generate-child-classes.php"/>
+	<exec executable="${basedir}/build/generate-child-classes.php"/>
 
-  <exec executable="${basedir}/build/tools/phpab.phar">
-   <arg value="--output" />
-   <arg path="src/autoload.php" />
-   <arg path="src" />
-  </exec>
+	<exec executable="${basedir}/build/tools/phpab.phar">
+		<arg value="--output" />
+		<arg path="src/autoload.php" />
+		<arg path="src" />
+	</exec>
+  </target>
+
+  <target name="doUnix" if="isUnix">
+    <echo message="Came into the Unix target ****" />
+  </target>
+
+ <target name="generate-code" description="Generate Currency-specific subclasses of Money and autoloader code" depends="doWindows,isUnix">
+
  </target>
 
  <target name="lint">
