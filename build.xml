@@ -42,7 +42,7 @@
     <echo message="Came into the Unix target ****" />
   </target>
 
- <target name="generate-code" description="Generate Currency-specific subclasses of Money and autoloader code" depends="doWindows,isUnix">
+ <target name="generate-code" description="Generate Currency-specific subclasses of Money and autoloader code" depends="doWindows,doUnix">
 
  </target>
 
